@@ -48,4 +48,5 @@ Now browse to the app at [`localhost:8005/`]
 
 1. Remove inline styling.
 2. Beautification.
+3. Using services to create data.
 
