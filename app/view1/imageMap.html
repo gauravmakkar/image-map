@@ -1,0 +1,37 @@
+<div style="text-align: center;margin-top:50px;">
+    <img height="600" width="900" src='https://www.worldmapsonline.com/images/carpets/world-map-classroom-rug_lg.jpg' usemap="#worldMap">
+    <map name="worldMap">
+        <area shape="rect" coords="0,0,900,600" ng-click="createCordinates($event)" alt="Mercury">
+        <span ng-repeat="cordinate in cordinates track by $index" ng-style="setCordinate(cordinate)"
+              ng-click="openForm(cordinate)">
+
+        </span>
+        <div ng-if="active" ng-style="setFormCordinates()" style="padding:20px">
+
+            <div ng-if="!active.created" style="margin-bottom:1em">
+                <h3>Create Note</h3>
+                <div style="margin-bottom: 10px;">
+                    <input type="text" placeholder="Title" data-ng-model="active.title">
+
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <textarea placeholder="Details" data-ng-model="active.description"></textarea>
+
+                </div>
+
+                <button data-ng-disabled="!active.title || !active.description" ng-click="createNote(active.index)">Create Note</button>
+                <button ng-click="deleteActive(active.index)">Close</button>
+            </div>
+            <div ng-if="active.created">
+                <h3 class="title" data-ng-bind="active.title">
+
+                </h3>
+                <p class="description" data-ng-bind="active.description">
+
+                </p>
+                <button ng-click="deleteActive(active.index)">Close</button>
+            </div>
+
+        </div>
+    </map>
+</div>
